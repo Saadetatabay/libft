@@ -1,6 +1,4 @@
-#include<unistd.h>
-#include<stdio.h>
-#include<stdlib.h>
+#include "libft.h"
 static int    word_count(char const *s, char c)
 {
     int    word_count;
