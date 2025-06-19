@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: satabay <satabay@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/19 16:29:17 by satabay           #+#    #+#             */
-/*   Updated: 2025/06/19 16:29:19 by satabay          ###   ########.fr       */
+/*   Created: 2025/06/19 16:53:02 by satabay           #+#    #+#             */
+/*   Updated: 2025/06/19 16:54:44 by satabay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	int		i;
-	char	*p;
+	char	*a;
+	size_t	i;
 
 	i = 0;
-	while (*(s + i))
-		i++;
-	p = (char *)malloc(sizeof(char) * i);
-	if (!p)
+	if (!s)
 		return (0);
-	i = 0;
-	while (*(s + i))
+	a = (char *)malloc(sizeof(char) * len);
+	if (!a)
+		return (0);
+	while (s[start + i] && i < len)
 	{
-		*(p + i) = f(i, *(s + i));
+		a[i] = s[start + i];
 		i++;
 	}
-	return (p);
+	a[i] = '\0';
+	return (a);
 }
