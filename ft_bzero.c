@@ -1,17 +1,25 @@
-#include<unistd.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: satabay <satabay@student.42istanbul.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/06/20 17:41:16 by satabay           #+#    #+#             */
+/*   Updated: 2025/06/20 17:42:26 by satabay          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void	bzero(void *s, size_t n)
+#include "libft.h"
+
+void	ft_bzero(void *s, size_t n)
 {
-	unsigned char *p;
+	unsigned char	*p;
+
 	p = (unsigned char *)s;
 	while (n--)
 	{
 		*p = 0;
 		p++;
 	}
-}
-int main()
-{
-	char s[]="saadet";
-	bezero(s,6);
 }

@@ -1,11 +1,24 @@
-#include<unistd.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: satabay <satabay@student.42istanbul.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/06/22 12:06:48 by satabay           #+#    #+#             */
+/*   Updated: 2025/06/22 12:11:33 by satabay          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	unsigned char* d;
-	unsigned char* s;
-	d = (unsigned char*)dest;
-	s = (unsigned char*)src;
+	unsigned char	*d;
+	unsigned char	*s;
+
+	d = (unsigned char *)dest;
+	s = (unsigned char *)src;
 	while (n--)
 	{
 		*d = *s;
@@ -13,14 +26,4 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 		s++;
 	}
 	return (dest);
-}
-#include<stdio.h>
-int main()
-{
-	char src[128]="caro emarld back it up";
-
-	char *dest= src+13;
-
-	ft_memcpy(dest,src,24);
-	printf("%s",dest);
 }

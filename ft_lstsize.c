@@ -1,24 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: satabay <satabay@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/22 13:49:52 by satabay           #+#    #+#             */
-/*   Updated: 2025/06/22 13:52:08 by satabay          ###   ########.fr       */
+/*   Created: 2025/06/20 16:44:22 by satabay           #+#    #+#             */
+/*   Updated: 2025/06/20 16:55:13 by satabay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strchr(const char *s, int c)
+#include "libft.h"
+
+int	ft_lstsize(t_list *lst)
 {
-	while (*s)
+	t_list	*temp;
+	int		i;
+
+	i = 0;
+	temp = lst;
+	while (temp != NULL)
 	{
-		if (c == *s)
-			return ((char *)s);
-		s++;
+		i++;
+		temp = temp -> next;
 	}
-	if (c == '\0')
-		return ((char *)s);
-	return (0);
+	return (i);
 }
+/*#include<stdio.h>
+int main()
+{
+	t_list *n1;
+	t_list *n2;
+	t_list *n3;
+
+	n1 = ft_lstnew("atabay");
+	n2 = ft_lstnew("yuksel");
+	n3 = ft_lstnew("saadet");
+	ft_lstadd_front(&n1,n2);
+	ft_lstadd_front(&n2,n3);
+	printf("%d",ft_lstsize(n3));
+}*/

@@ -1,11 +1,23 @@
-#include<unistd.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: satabay <satabay@student.42istanbul.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/06/20 17:34:06 by satabay           #+#    #+#             */
+/*   Updated: 2025/06/20 17:36:09 by satabay          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int	ft_strlen(char	*str)
+#include "libft.h"
+
+size_t	ft_strlen(const char	*s)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
-	while (*(str + i) != '\0')
+	while (*(s + i) != '\0')
 		i++;
 	return (i);
 }

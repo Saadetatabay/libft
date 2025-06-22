@@ -1,24 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: satabay <satabay@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/22 13:49:52 by satabay           #+#    #+#             */
-/*   Updated: 2025/06/22 13:52:08 by satabay          ###   ########.fr       */
+/*   Created: 2025/06/20 17:28:19 by satabay           #+#    #+#             */
+/*   Updated: 2025/06/20 17:28:20 by satabay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strchr(const char *s, int c)
+int	ft_isascii(int c)
 {
-	while (*s)
+	if (c >= 0 && c <= 127)
 	{
-		if (c == *s)
-			return ((char *)s);
-		s++;
+		return (1);
 	}
-	if (c == '\0')
-		return ((char *)s);
 	return (0);
-}
+}	

@@ -1,24 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: satabay <satabay@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/22 13:49:52 by satabay           #+#    #+#             */
-/*   Updated: 2025/06/22 13:52:08 by satabay          ###   ########.fr       */
+/*   Created: 2025/06/22 15:39:27 by satabay           #+#    #+#             */
+/*   Updated: 2025/06/22 15:55:29 by satabay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strchr(const char *s, int c)
+int	ft_atoi(const char *nptr)
 {
-	while (*s)
+	int	sign;
+	int	num;
+
+	num = 0;
+	sign = 1;
+	while ((*nptr >= 8 && *nptr <= 13) || *nptr == 32)
+		nptr++;
+	if (*nptr == '-' || *nptr == '+')
 	{
-		if (c == *s)
-			return ((char *)s);
-		s++;
+		if (*nptr == '-')
+			sign = -1;
+		nptr++;
 	}
-	if (c == '\0')
-		return ((char *)s);
-	return (0);
+	while (*nptr >= '0' && *nptr <= '9')
+	{
+		num = 10 * num + *nptr - '0';
+		nptr++;
+	}
+	return (sign * num);
 }

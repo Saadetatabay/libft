@@ -1,24 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: satabay <satabay@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/22 13:49:52 by satabay           #+#    #+#             */
-/*   Updated: 2025/06/22 13:52:08 by satabay          ###   ########.fr       */
+/*   Created: 2025/06/20 16:20:48 by satabay           #+#    #+#             */
+/*   Updated: 2025/06/20 16:40:51 by satabay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strchr(const char *s, int c)
+#include "libft.h"
+
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	while (*s)
-	{
-		if (c == *s)
-			return ((char *)s);
-		s++;
-	}
-	if (c == '\0')
-		return ((char *)s);
-	return (0);
+	new -> next = *lst;
+	*lst = new;
 }
+/*#include<stdio.h>
+int main()
+{
+	t_list *lst;
+	lst = ft_lstnew("atabay");
+
+	t_list *lst1;
+
+	lst1 = ft_lstnew("saadet");
+	
+	ft_lstadd_front(&lst,lst1);
+	printf("%s %s",(char *)lst->content,(char *)lst->next->content);
+}*/

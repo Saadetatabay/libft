@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: satabay <satabay@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/22 13:49:52 by satabay           #+#    #+#             */
-/*   Updated: 2025/06/22 13:52:08 by satabay          ###   ########.fr       */
+/*   Created: 2025/06/20 16:56:40 by satabay           #+#    #+#             */
+/*   Updated: 2025/06/20 17:07:21 by satabay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strchr(const char *s, int c)
+#include "libft.h"
+
+t_list	*ft_lstlast(t_list *lst)
 {
-	while (*s)
+	t_list	*temp;
+
+	temp = lst;
+	while (temp != NULL)
 	{
-		if (c == *s)
-			return ((char *)s);
-		s++;
+		temp = temp -> next;	
 	}
-	if (c == '\0')
-		return ((char *)s);
-	return (0);
 }

@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: satabay <satabay@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/22 13:49:52 by satabay           #+#    #+#             */
-/*   Updated: 2025/06/22 13:52:08 by satabay          ###   ########.fr       */
+/*   Created: 2025/06/20 14:56:10 by satabay           #+#    #+#             */
+/*   Updated: 2025/06/20 16:39:37 by satabay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strchr(const char *s, int c)
+#include "libft.h"
+#include <stdio.h>
+
+t_list	*ft_lstnew(void *content)
 {
-	while (*s)
-	{
-		if (c == *s)
-			return ((char *)s);
-		s++;
-	}
-	if (c == '\0')
-		return ((char *)s);
-	return (0);
+	t_list	*n;
+
+	n = (t_list *)malloc(sizeof(t_list));
+	n -> content = content;
+	n -> next = NULL;
+	return (n);
 }
+/*int main()
+{
+	char *content="saadet";
+	printf("%s",(char *)(ft_lstnew(content) -> content));
+}*/
