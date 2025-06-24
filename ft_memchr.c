@@ -6,7 +6,7 @@
 /*   By: satabay <satabay@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 14:43:44 by satabay           #+#    #+#             */
-/*   Updated: 2025/06/22 14:46:55 by satabay          ###   ########.fr       */
+/*   Updated: 2025/06/24 13:06:46 by satabay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	size_t					i;
-	const unsigned char		*p;
+	size_t				i;
+	const unsigned char	*p;
 
 	i = 0;
 	p = s;

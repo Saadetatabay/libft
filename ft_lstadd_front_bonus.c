@@ -1,29 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_front_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: satabay <satabay@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/20 14:56:10 by satabay           #+#    #+#             */
-/*   Updated: 2025/06/20 16:39:37 by satabay          ###   ########.fr       */
+/*   Created: 2025/06/20 16:20:48 by satabay           #+#    #+#             */
+/*   Updated: 2025/06/24 18:06:57 by satabay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-t_list	*ft_lstnew(void *content)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	t_list	*n;
-
-	n = (t_list *)malloc(sizeof(t_list));
-	n -> content = content;
-	n -> next = NULL;
-	return (n);
+	if (lst)
+	{
+		if(*lst)
+			new->next = *lst;
+		*lst = new;	
+	}
 }
-/*int main()
+/*#include<stdio.h>
+int	main(void)
 {
-	char *content="saadet";
-	printf("%s",(char *)(ft_lstnew(content) -> content));
+	t_list *lst;
+	lst = ft_lstnew("atabay");
+
+	t_list *lst1;
+
+	lst1 = ft_lstnew("saadet");
+
+	ft_lstadd_front(&lst,lst1);
+	printf("%s %s",(char *)lst->content,(char *)lst->next->content);
+	free(lst->content);
 }*/

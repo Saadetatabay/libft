@@ -6,11 +6,11 @@
 /*   By: satabay <satabay@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 15:26:25 by satabay           #+#    #+#             */
-/*   Updated: 2025/06/22 15:26:26 by satabay          ###   ########.fr       */
+/*   Updated: 2025/06/24 13:06:48 by satabay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {

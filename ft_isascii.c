@@ -6,7 +6,7 @@
 /*   By: satabay <satabay@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 17:28:19 by satabay           #+#    #+#             */
-/*   Updated: 2025/06/20 17:28:20 by satabay          ###   ########.fr       */
+/*   Updated: 2025/06/24 13:06:35 by satabay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,4 +17,4 @@ int	ft_isascii(int c)
 		return (1);
 	}
 	return (0);
-}	
+}

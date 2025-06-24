@@ -6,7 +6,7 @@
 /*   By: satabay <satabay@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 16:21:52 by satabay           #+#    #+#             */
-/*   Updated: 2025/06/19 16:22:32 by satabay          ###   ########.fr       */
+/*   Updated: 2025/06/24 13:07:00 by satabay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_putendl_fd(char *s, int fd)
 {
-	int		i;
+	int	i;
 
 	i = 0;
 	while (*(s + i))

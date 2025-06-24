@@ -6,7 +6,7 @@
 /*   By: satabay <satabay@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 16:29:17 by satabay           #+#    #+#             */
-/*   Updated: 2025/06/19 16:29:19 by satabay          ###   ########.fr       */
+/*   Updated: 2025/06/24 15:16:53 by satabay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	i = 0;
 	while (*(s + i))
 		i++;
-	p = (char *)malloc(sizeof(char) * i);
+	p = (char *)malloc(sizeof(char) * (i + 1));
 	if (!p)
 		return (0);
 	i = 0;
@@ -29,5 +29,6 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 		*(p + i) = f(i, *(s + i));
 		i++;
 	}
+	*(p + i) = '\0';
 	return (p);
 }

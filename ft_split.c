@@ -1,65 +1,92 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: satabay <satabay@student.42istanbul.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/06/24 13:45:35 by satabay           #+#    #+#             */
+/*   Updated: 2025/06/24 18:13:24 by satabay          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
-static int    word_count(char const *s, char c)
+
+static int	word_count(char const *s, char c)
 {
-    int    word_count;
-    int i;
-    i = 0;
-    word_count = 0;
-    if (*(s + i)!= c)
-    {
-        word_count++;
-        i++;
-    }
-    while (*(s + i))
-    {
-        if (*(s + i) != c && *(s + i - 1) == c && *(s + i) != '\0')
-            word_count++;
-        i++;
-    }
-    return (word_count);
+	int	word_count;
+	int	i;
+
+	i = 0;
+	word_count = 0;
+	while (*(s + i) == c)
+		i++;
+	if (*(s + i) != '\0')
+	{
+		i++;
+		word_count++;
+	}
+	while (*(s + i))
+	{
+		if (*(s + i) != c && *(s + i - 1) == c)
+			word_count++;
+		i++;
+	}
+	return (word_count);
 }
-char    **ft_split(char const *s, char c)
+
+static void	free_splitted(char **splitted, int j)
 {
-    int    i;
-    int    j;
-    int k;
-    int    len;
-    char    **splitted;
-    i = 0;
-    j = 0;
-    splitted = (char **)malloc(sizeof(char *) * (word_count(s,c) + 1));
-    if(!splitted)
-        return (0);
-    while(*(s + i))
-    {
-        while (*(s + i) == c)
-            i++;
-        len = 0;
-        while (*(s + i) != c && *(s + i) != '\0')
-        {
-            i++;
-            len++;
-        }
-        splitted[j] = (char *)malloc(sizeof(char) * (len + 1));
-        if (!splitted[j])
-        {
-          while(j)
-          {
-            free(splitted[j]);
-            j--;
-          }
-          free(splitted);
-        }  
-        
-        k = 0;
-        while (len) //len 6 i 9
-        {
-            splitted[j][k] = s[i - len];
-            k++;
-            len--;
-        }
-        splitted[j][k] = '\0';
-        j++;
-    }
-    return (splitted);
+	while (j--)
+		free(splitted[j]);
+	free(splitted);
+}
+
+static char	**filling(char **splitted, const char *s, char c)
+{
+	int	len;
+	int	j;
+
+	j = 0;
+	while (j < word_count(s, c))
+	{
+		while (*s == c)
+			s++;
+		len = 0;
+		while (*(s + len) != c && *(s + len) != '\0')
+			len++;
+		splitted[j] = malloc(sizeof(char) * (len + 1));
+		if (!splitted[j])
+		{
+			free_splitted(splitted, j);
+			return NULL;
+		}
+		ft_memcpy(splitted[j], s, len);
+		splitted[j][len] = '\0';
+		s = s + len;
+		j++;
+	}
+	splitted[j] = NULL;
+	return (splitted);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	int		word_c;
+	char	**splitted;
+
+	if (!s)
+		return (NULL);
+	word_c = word_count(s, c);
+	splitted = malloc(sizeof(char *) * (word_c + 1));
+	if (!splitted)
+		return (NULL);
+	return (filling(splitted, s, c));
+}
+#include<stdio.h>
+int main()
+{
+	char *string = "   	   split       this   for   me  !       ";
+	//printf("%s",*(ft_split(string,' ')+3));
+	printf("%d",word_count(string, ' '));
 }

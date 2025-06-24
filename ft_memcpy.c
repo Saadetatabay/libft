@@ -6,7 +6,7 @@
 /*   By: satabay <satabay@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 12:06:48 by satabay           #+#    #+#             */
-/*   Updated: 2025/06/22 12:11:33 by satabay          ###   ########.fr       */
+/*   Updated: 2025/06/24 13:06:50 by satabay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 
 	d = (unsigned char *)dest;
 	s = (unsigned char *)src;
+	if (!d && !s)
+		return (NULL);
 	while (n--)
 	{
 		*d = *s;

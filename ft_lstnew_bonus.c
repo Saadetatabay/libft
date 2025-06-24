@@ -1,42 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: satabay <satabay@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/20 16:44:22 by satabay           #+#    #+#             */
-/*   Updated: 2025/06/20 16:55:13 by satabay          ###   ########.fr       */
+/*   Created: 2025/06/20 14:56:10 by satabay           #+#    #+#             */
+/*   Updated: 2025/06/24 18:08:56 by satabay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
-int	ft_lstsize(t_list *lst)
+t_list	*ft_lstnew(void *content)
 {
-	t_list	*temp;
-	int		i;
+	
+	t_list	*n;
 
-	i = 0;
-	temp = lst;
-	while (temp != NULL)
-	{
-		i++;
-		temp = temp -> next;
-	}
-	return (i);
+	n = (t_list *)malloc(sizeof(t_list));
+	n->content = content;
+	n->next = NULL;
+	return (n);
 }
-/*#include<stdio.h>
-int main()
-{
-	t_list *n1;
-	t_list *n2;
-	t_list *n3;
-
-	n1 = ft_lstnew("atabay");
-	n2 = ft_lstnew("yuksel");
-	n3 = ft_lstnew("saadet");
-	ft_lstadd_front(&n1,n2);
-	ft_lstadd_front(&n2,n3);
-	printf("%d",ft_lstsize(n3));
-}*/

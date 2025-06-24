@@ -1,9 +1,21 @@
-#include<unistd.h>	
-#include<stdlib.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: satabay <satabay@student.42istanbul.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/06/24 17:17:58 by satabay           #+#    #+#             */
+/*   Updated: 2025/06/24 17:18:11 by satabay          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-static int length(char const *s)
+#include <unistd.h>
+
+static int	length(char const *s)
 {
 	int	i;
+
 	i = 0;
 	while (*(s + i))
 		i++;
@@ -12,63 +24,57 @@ static int length(char const *s)
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	int	i;
-	int	control;
-	int	len;
+	int		i;
+	int		control;
+	int		len;
 	char	*ret;
+
 	if (!s1)
 		return (0);
 	while (*s1)
 	{
 		control = 0;
 		i = 0;
-		while(*(set + i))
+		while (*(set + i))
 		{
-			if(*(set + i) == *s1)
+			if (*(set + i) == *s1)
 			{
 				control = 1;
-				break;
+				break ;
 			}
 			i++;
 		}
 		if (!control)
-			break;
+			break ;
 		s1++;
 	}
 	len = length(s1);
-	while(len)
+	while (len)
 	{
 		control = 0;
 		i = 0;
 		while (*(set + i))
-		{	
-			if(*(set + i) == *(s1 + len - 1))
+		{
+			if (*(set + i) == *(s1 + len - 1))
 			{
 				control = 1;
-				break;
+				break ;
 			}
 			i++;
 		}
-		if(!control)
-			break;
+		if (!control)
+			break ;
 		len--;
 	}
 	i = 0;
-	ret = (char *)malloc(sizeof(char ) * (len + 1));
+	ret = (char *)malloc(sizeof(char) * (len + 1));
 	if (!ret)
 		return (0);
 	while (i < len)
 	{
 		ret[i] = s1[i];
-	       i++;	
+		i++;
 	}
 	ret[i] = '\0';
 	return (ret);
-}
-#include<stdio.h>
-int main()
-{
-	char *s1="çççmerhabaçç";
-	char *set="ç";
-	printf("%s",ft_strtrim(s1,set));
 }

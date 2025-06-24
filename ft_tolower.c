@@ -6,13 +6,13 @@
 /*   By: satabay <satabay@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 12:59:24 by satabay           #+#    #+#             */
-/*   Updated: 2025/06/22 13:47:28 by satabay          ###   ########.fr       */
+/*   Updated: 2025/06/24 13:24:30 by satabay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_tolower(int c)
 {
-	if (c >= 65 && c <= 122)
+	if (c >= 'A' && c <= 'Z')
 		c = c + 32;
 	return (c);
 }

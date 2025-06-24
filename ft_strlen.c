@@ -6,13 +6,13 @@
 /*   By: satabay <satabay@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 17:34:06 by satabay           #+#    #+#             */
-/*   Updated: 2025/06/20 17:36:09 by satabay          ###   ########.fr       */
+/*   Updated: 2025/06/24 13:07:36 by satabay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char	*s)
+size_t	ft_strlen(const char *s)
 {
 	size_t	i;
 
