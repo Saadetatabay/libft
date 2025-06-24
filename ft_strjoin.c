@@ -41,8 +41,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	if (!cat)
 		return (0);
 	concatenate(cat, s1, &j);
-	printf("hvovefojjf\n");
 	concatenate(cat, s2, &j);
-	*(cat + i + j) = '\0';
+	*(cat + j) = '\0';
 	return (cat);
 }

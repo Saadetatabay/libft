@@ -10,71 +10,44 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
-static int	length(char const *s)
+static int del_start(char const* s1, char const *set)
 {
 	int	i;
 
 	i = 0;
-	while (*(s + i))
+	while (s1[i] && ft_strchr(set,s1[i]))
 		i++;
-	return (i);
+	return (i);	
 }
 
+static int del_end(char const* s1, char const* set, int start)
+{
+	int len;
+	
+	len = ft_strlen(s1);
+	while (len > start && ft_strchr(set, s1[len - 1]))
+		len--;
+	return (len);	
+}
 char	*ft_strtrim(char const *s1, char const *set)
 {
+	int		start;
+	int		end;
 	int		i;
-	int		control;
-	int		len;
 	char	*ret;
 
+	i = 0;
 	if (!s1)
 		return (0);
-	while (*s1)
-	{
-		control = 0;
-		i = 0;
-		while (*(set + i))
-		{
-			if (*(set + i) == *s1)
-			{
-				control = 1;
-				break ;
-			}
-			i++;
-		}
-		if (!control)
-			break ;
-		s1++;
-	}
-	len = length(s1);
-	while (len)
-	{
-		control = 0;
-		i = 0;
-		while (*(set + i))
-		{
-			if (*(set + i) == *(s1 + len - 1))
-			{
-				control = 1;
-				break ;
-			}
-			i++;
-		}
-		if (!control)
-			break ;
-		len--;
-	}
-	i = 0;
-	ret = (char *)malloc(sizeof(char) * (len + 1));
+	start = del_start(s1,set);
+	end = del_end(s1,set,start);	
+	ret = (char *)malloc(sizeof(char) * (end - start + 1));
 	if (!ret)
 		return (0);
-	while (i < len)
-	{
-		ret[i] = s1[i];
-		i++;
-	}
+	while (start < end)
+		ret[i++] = s1[start++];
 	ret[i] = '\0';
 	return (ret);
 }
