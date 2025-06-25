@@ -6,7 +6,7 @@
 /*   By: satabay <satabay@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 17:02:02 by satabay           #+#    #+#             */
-/*   Updated: 2025/06/24 17:17:20 by satabay          ###   ########.fr       */
+/*   Updated: 2025/06/25 10:39:12 by satabay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,9 @@ char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*cat;
 	int		len;
-	int		i;
 	int		j;
 
 	j = 0;
-	i = 0;
 	len = 0;
 	len = ft_strlen(s1);
 	len += ft_strlen(s2);

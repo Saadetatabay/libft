@@ -6,7 +6,7 @@
 /*   By: satabay <satabay@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 13:45:35 by satabay           #+#    #+#             */
-/*   Updated: 2025/06/24 18:13:24 by satabay          ###   ########.fr       */
+/*   Updated: 2025/06/25 12:18:07 by satabay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,10 @@ static int	word_count(char const *s, char c)
 	int	word_count;
 	int	i;
 
-	i = 0;
+	i = 1;
 	word_count = 0;
-	while (*(s + i) == c)
-		i++;
-	if (*(s + i) != '\0')
-	{
-		i++;
+	if (*(s) != c)
 		word_count++;
-	}
 	while (*(s + i))
 	{
 		if (*(s + i) != c && *(s + i - 1) == c)
@@ -42,13 +37,13 @@ static void	free_splitted(char **splitted, int j)
 	free(splitted);
 }
 
-static char	**filling(char **splitted, const char *s, char c)
+static char	**filling(char **splitted, const char *s, char c, int word_con)
 {
 	int	len;
 	int	j;
 
 	j = 0;
-	while (j < word_count(s, c))
+	while (j < word_con)
 	{
 		while (*s == c)
 			s++;
@@ -59,7 +54,7 @@ static char	**filling(char **splitted, const char *s, char c)
 		if (!splitted[j])
 		{
 			free_splitted(splitted, j);
-			return NULL;
+			return (NULL);
 		}
 		ft_memcpy(splitted[j], s, len);
 		splitted[j][len] = '\0';
@@ -75,18 +70,12 @@ char	**ft_split(char const *s, char c)
 	int		word_c;
 	char	**splitted;
 
-	if (!s)
-		return (NULL);
-	word_c = word_count(s, c);
+	if (s[0] == '\0')
+		word_c = 0;
+	else
+		word_c = word_count(s, c);
 	splitted = malloc(sizeof(char *) * (word_c + 1));
 	if (!splitted)
 		return (NULL);
-	return (filling(splitted, s, c));
-}
-#include<stdio.h>
-int main()
-{
-	char *string = "   	   split       this   for   me  !       ";
-	//printf("%s",*(ft_split(string,' ')+3));
-	printf("%d",word_count(string, ' '));
+	return (filling(splitted, s, c, word_c));
 }

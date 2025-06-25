@@ -26,7 +26,7 @@ bonus : $(NAME) $(OBJBONUS)
 	$(CC) -c $< -o $@ 
 
 clean :
-	rm -f $(OBJ)
+	rm -f $(OBJ) $(OBJBONUS)
 
 fclean : clean
 	rm -f $(NAME)
